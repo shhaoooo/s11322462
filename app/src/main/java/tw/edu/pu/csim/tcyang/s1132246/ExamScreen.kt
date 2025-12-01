@@ -31,27 +31,26 @@ fun ExamScreen(vm: ExamViewModel = viewModel()) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFFFFF00)), // 黃色
-        contentAlignment = Alignment.Center
+            .background(Color.Yellow)
     ) {
+
+        // ⭐ 第二題：中間大圖片 + 文字
         Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            modifier = Modifier.align(Alignment.Center),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            // 圖片（請確認 drawable 裡有 exam_img.png 或換成你要的）
+            // 中間大圖（請確認有 exam.png 或替換）
             Image(
-                painter = painterResource(id = R.drawable.happy),
+                painter = painterResource(id = R.drawable.happy),   // ← 換成中間大圖
                 contentDescription = null,
                 modifier = Modifier.size(200.dp)
             )
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // ✏️ 修改成你的系級與姓名
             Text(
-                text = "系級：資管二A / 姓名:洪唯皓",
+                text = "系級：資管三A / 姓名：沈博雅",
                 style = MaterialTheme.typography.titleMedium
             )
 
@@ -69,5 +68,49 @@ fun ExamScreen(vm: ExamViewModel = viewModel()) {
                 style = MaterialTheme.typography.titleMedium
             )
         }
+
+
+        // ⭐ 第三題：四角角色圖示 (300px = 100dp)
+
+        val halfScreen = (config.screenHeightDp.dp / 2) - 100.dp   // 上排切齊螢幕一半
+
+        // 嬰幼兒（左上）
+        Image(
+            painter = painterResource(id = R.drawable.role0),
+            contentDescription = "嬰幼兒",
+            modifier = Modifier
+                .size(100.dp)
+                .align(Alignment.TopStart)
+                .offset(y = halfScreen)
+        )
+
+        // 兒童（右上）
+        Image(
+            painter = painterResource(id = R.drawable.role1),
+            contentDescription = "兒童",
+            modifier = Modifier
+                .size(100.dp)
+                .align(Alignment.TopEnd)
+                .offset(y = halfScreen)
+        )
+
+        // 成人（左下）
+        Image(
+            painter = painterResource(id = R.drawable.role2),
+            contentDescription = "成人",
+            modifier = Modifier
+                .size(100.dp)
+                .align(Alignment.BottomStart)
+        )
+
+        // 一般民眾（右下）
+        Image(
+            painter = painterResource(id = R.drawable.role3),
+            contentDescription = "一般民眾",
+            modifier = Modifier
+                .size(100.dp)
+                .align(Alignment.BottomEnd)
+        )
     }
 }
+
