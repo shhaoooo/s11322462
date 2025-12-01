@@ -51,7 +51,7 @@ fun ExamScreen(vm: ExamViewModel = viewModel()) {
             Spacer(Modifier.height(10.dp))
 
             Text(
-                text = "系級：資管三A / 姓名：沈博雅",
+                text = "系級：資管二A / 姓名：洪唯皓",
                 style = MaterialTheme.typography.titleMedium
             )
 
@@ -134,7 +134,6 @@ fun ExamScreen(vm: ExamViewModel = viewModel()) {
                     x = (vm.serviceX.value / config.densityDpi * 160).dp,
                     y = (vm.serviceY.value / config.densityDpi * 160).dp
                 )
-
         )
     }
 }

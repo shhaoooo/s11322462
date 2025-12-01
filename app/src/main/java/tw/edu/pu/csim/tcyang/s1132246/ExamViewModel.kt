@@ -64,5 +64,10 @@ class ExamViewModel : ViewModel() {
     /** 左右拖曳（px） */
     fun moveService(deltaX: Float) {
         serviceX.value += deltaX
-    }
+
+        // 限制不要拖出螢幕外（可加可不加）
+        if (serviceX.value < 0f) serviceX.value = 0f
+        if (serviceX.value > screenWidth.value - 100f)
+            serviceX.value = (screenWidth.value - 100f)
+}
 }
